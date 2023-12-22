@@ -1,122 +1,50 @@
-# pets-api
+Welcome to , the ultimate social platform for pet owners to share adorable pictures of their furry friends!
 
-## Overview
+## Table of Contents
 
-OnlyPets is a Pet social media site, similar to instagram, where a User can signup and add their Pet's profile to the site. A User can have multiple Pet profiles allowing them to like, comment (post-mvp), add posts, and delete their account.
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-## Prerequisites
+## Introduction
 
-```
-Python 3
-pip (Python package manager)
-Virtual environment (recommended for Python package management)
+Only Pets is a web application where pet enthusiasts can showcase their pets' cuteness through pictures. Whether you have a fluffy cat, playful dog, or any other adorable pet, Only Pets is the perfect place to share and connect with fellow pet lovers.
 
-```
+## Features
 
-### Base URL
+- **Upload Pet Pictures:** Share your favorite pet moments by uploading images.
+- **Like and Comment:** Interact with other pet owners by liking and commenting on their pet pictures.
+- **User Profiles:** Create and customize your profile to showcase your pet's personality.
+- **Explore Feed:** Discover a variety of pets and make new furry friends.
 
-```javascript
-urlpatterns = [
-   "admin/"
-   "api/"
-]
-```
+## Technologies Used
 
-### Endpoints
+- **Frontend:** [React](https://reactjs.org/), [Redux](https://redux.js.org/), [CSS/SASS](https://sass-lang.com/)
+- **Backend:** [Node.js](https://nodejs.org/), [Express](https://expressjs.com/), [MongoDB](https://www.mongodb.com/)
+- **Authentication:** [JWT](https://jwt.io/)
+- **Image Storage:** [Amazon S3](https://aws.amazon.com/s3/)
 
-These endpoints are out of the box Django providing full CRUD for each endpoint listed
+## Installation
 
-```
-"pets/"
-"posts/"
-"comments/"
-"likes/"
-"following/"
-```
+1. Clone the repository: `git clone https://github.com/yourusername/petpics.git`
+2. Navigate to the project directory: `cd petpics`
+3. Install dependencies:
+   ```bash
+   npm install   # Install backend dependencies
+   cd client
+   npm install   # Install frontend dependencies
+   ```
 
-### Additional Endpoints
+redux.js.orgredux.js.org
+Redux - A predictable state container for JavaScript apps. | Redux
+A predictable state container for JavaScript apps.
 
-```javascript
-urlpatterns = [
-  POST "users/register/", registers a user
-  POST "users/login/", adds a token to logged in User
-  GET "users/verify/", verifies the User is authenticated
-  GET  "user/pets/", gets all pets associated with a User
-  GET "pet/<int:pet_id>/posts/", gets all posts from a specific Pet under User
-  DELETE "users/delete/<int:user_id>/", Deletes a User and all associated Pets && Posts
-]
-```
-
-## Models
-
-### Pet Model:
-
-```javascript
-GENDER_CHOICES = (
-    ('male', 'male'),
-    ('female', 'female'),
-    ('not specified', 'not specified'),
-)
-
-class Pet(models.Model):
-    name = models.CharField(max_length=100)
-    species = models.CharField(max_length=50)
-    breed = models.CharField(max_length=50)
-    age = models.IntegerField()
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    profile_img = models.URLField(max_length=600)
-    gender = models.CharField(choices=GENDER_CHOICES, null=True, blank=True)
-    bio = models.CharField(max_length=600, blank=True)
-
-        def __str__(self):
-        return f'{self.name} - {self.breed}'
-```
-
-### Post Model:
-
-```javascript
-class Post(models.Model):
-    pet = models.ForeignKey(Pet, on_delete=models.CASCADE, related_name='posts')
-    content = models.TextField()
-    post_image = models.URLField(max_length=1000)
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f'{self.pet.name} - {self.content}'
-
-```
-
-### Like Model:
-
-```javascript
-class Like(models.Model):
-    pet = models.ForeignKey(Pet, on_delete=models.CASCADE)
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
-```
-
-### Comment Model:
-
-```javascript
-class Comment(models.Model):
-    comment = models.CharField(max_length=250)
-    pet = models.ForeignKey(Pet, on_delete=models.CASCADE)
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return f'{self.pet}- {self.comment}'
-
-```
-
-### Following Model:
-
-```javascript
-class Following(models.Model):
-    follower = models.ForeignKey(Pet, related_name='following', on_delete=models.CASCADE)
-    followed_pet = models.ForeignKey(Pet, related_name='followers', on_delete=models.CASCADE, null=True, blank=True)
-
-```
-
-## Contact
-
-For any questions or concerns, please [open an issue](https://github.com/SEI-NightHawks/pets-api/issues) in this repository.
+nodejs.orgnodejs.org
+Node.js
+Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
+9:20
+This is a potential Readme.md if we don't have one

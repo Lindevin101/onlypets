@@ -1,0 +1,38 @@
+.App {
+  text-align: center;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.navbar {
+  background-color: whitesmoke;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  font-size: 15px;
+  margin-left: 1250px;
+  padding-top: 15px;
+}
+
+.nav-links li {
+  margin-right: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+}
+
+.logo-image-home {
+  width: 95px;
+  margin-left: 660px;
+  position: absolute;
+}
